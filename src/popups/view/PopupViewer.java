@@ -1,7 +1,11 @@
 package popups.view;
 
 import javax.swing.JOptionPane;
-
+/**
+ * Popup Viewer class
+ * @author Braeden Moffat
+ * @version September 27, 2016.
+ */
 public class PopupViewer
 {
 	
