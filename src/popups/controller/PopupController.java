@@ -1,18 +1,28 @@
 package popups.controller;
 
 import popups.view.PopupViewer;
+import popups.model.PopupThingy;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PopupController
 {
 	
 	private PopupViewer display;
+	private List<PopupThingy> thingyList;
 	
 	public PopupController()
 	{
 		display = new PopupViewer();
+		thingyList = new ArrayList<PopupThingy>();
 	}
 	
 	public void start()
+	{
+		learnLists();
+	}
+	
+	private void testLoop()
 	{
 		String answer = "sample";
 		while(answer != null && !isDouble(answer))
@@ -20,7 +30,6 @@ public class PopupController
 			answer = display.collectResponse("Sorry, you need to type in a number.");
 		}
 	}
-		
 	/**
 	 * Checks if the supplied String can be parsed to a double value.
 	 * @param potentialValue : The string to test.
@@ -66,5 +75,12 @@ public class PopupController
 		return isParseble;
 	}
 	
+	private void learnLists()
+	{
+		display.displayMessage("I have " + thingyList.size() + " things in my list.");
+		PopupThingy testThingy = new PopupThingy();
+		thingyList.add(testThingy);
+		display.displayMessage(thingyList.size() + " is the size of the list");
+	}
 	
 }
