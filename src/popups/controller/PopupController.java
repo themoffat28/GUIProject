@@ -15,12 +15,9 @@ public class PopupController
 	public void start()
 	{
 		String answer = "sample";
-		while(answer != null && !answer.equals(""))
+		while(answer != null && !isDouble(answer))
 		{
-			display.displayMessage("*Child Screams*");
-		    answer = display.collectResponse("ARE WE THERE YET?");
-			display.displayMessage("You tell the child " + answer);
-		
+			answer = display.collectResponse("Sorry, you need to type in a number.");
 		}
 	}
 		
@@ -41,7 +38,7 @@ public class PopupController
 		}
 		catch(NumberFormatException notDouble)
 		{
-			display.displayMessage("This is not a double value! ");
+			display.displayMessage("This is not a valid value!");
 		}
 		
 		return isParseble; 
