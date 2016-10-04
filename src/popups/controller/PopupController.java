@@ -81,6 +81,60 @@ public class PopupController
 		PopupThingy testThingy = new PopupThingy();
 		thingyList.add(testThingy);
 		display.displayMessage(thingyList.size() + " is the size of the list");
+		
+		for (int index = 0; index < 5; index++)
+		{
+			PopupThingy addThingy = new PopupThingy();
+			thingyList.add(addThingy);
+			display.displayMessage(addThingy.getWords());
+		}
+		
+		display.displayMessage(thingyList.size() + " is the size");
+		
+		thingyList.get(3).setWords("look I changed a value");
+		PopupThingy temp = thingyList.get(4);
+		temp.setWords("stuff");
+		
+		String indexToChange = "ABC";
+		String whatToChangeTo = "XYZ";
+		while (indexToChange != null && !isInteger(indexToChange) && whatToChangeTo != null)
+		{
+			indexToChange = display.collectResponse("Mehoy Nehoy?");
+			whatToChangeTo = display.collectResponse("Mehoy Minoy?");
+			int updatedIndex = Integer.parseInt(indexToChange);
+			thingyList.get(updatedIndex).setWords(whatToChangeTo);
+			display.displayMessage("Mehoy Minoy " + updatedIndex + "Undi " + whatToChangeTo);
+		}
+		
+		for ( int index = 0; index < thingyList.size(); index++)
+		{
+			display.displayMessage(thingyList.get(index).getWords());
+		}
+	
+		thingyList.add(3, new PopupThingy());
+		
+		display.displayMessage("The size is: " + thingyList.size());
+		
+		thingyList.remove(0); //I no longer have access to this object because there is no equal sign.
+		
+		display.displayMessage("The size is " + thingyList.size());
+		
+		PopupThingy deletedThingy = thingyList.remove(3);
+		display.displayMessage(deletedThingy.getWords() + " and the list size is " + thingyList.size());
+		
+		thingyList.set(0, deletedThingy);
+		
+		for (int index = 0; index < thingyList.size(); index++)
+		{
+			display.displayMessage(thingyList.get(index).getWords());
+		}
+		
+		for (PopupThingy currentThingy : thingyList)
+		{
+			display.displayMessage(currentThingy.getWords());
+		}
+		
+		
 	}
 	
 }
